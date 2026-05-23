@@ -10,4 +10,7 @@ public class Cart {
     public Cart() {
         products = new ArrayList<>();
     }
+    public void addProduct(Product product) {
+        products.add(product);
+    }
 }
