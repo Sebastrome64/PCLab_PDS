@@ -1,3 +1,5 @@
+import observer.EmailNotificationObserver;
+import observer.AdminNotificationObserver;h
 import observer.AdminNotificationObserver;
 import observer.EmailNotificationObserver;
 import observer.InventoryObserver;
@@ -13,6 +15,9 @@ import strategy.PercentageDiscountStrategy;
 public class Main {
 
     public static void main(String[] args) {
+
+        System.out.println("===== TIENDA VIRTUAL =====");
+        System.out.println("--------------------------");
 
         Product p1 = new Product(1, "Laptop", 2500);
         Product p2 = new Product(2, "Mouse", 80);
