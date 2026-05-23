@@ -20,7 +20,7 @@ public class Cart {
         products.add(product);
     }
 
-    public void applyDiscountStrategy(DiscountStrategy discountStrategy) {
+    public void setDiscountStrategy(DiscountStrategy discountStrategy) {
         this.discountStrategy = discountStrategy;
     }
 
@@ -28,7 +28,7 @@ public class Cart {
 
         double total = 0;
 
-        for (Product product : products) {
+        for(Product product : products) {
             total += product.getPrice();
         }
 
@@ -37,5 +37,16 @@ public class Cart {
 
     public List<Product> getProducts() {
         return products;
+    }
+
+    public void showProducts() {
+
+        System.out.println("\nPRODUCTOS EN CARRITO:");
+
+        for(Product product : products) {
+
+            System.out.println(product.getName()
+                    + " - S/ " + product.getPrice());
+        }
     }
 }
