@@ -23,7 +23,7 @@ public class Main {
         System.out.println("Total: S/ " + cart.calculateTotal());
 
         PaymentProcessor paymentProcessor;
-        paymentProcessor = new CreditCardPaymentProcessor();
+        paymentProcessor = new PayPalAdapter(new ExternalPayPalService());
         paymentProcessor.pay(cart.calculateTotal());
     }
 }
