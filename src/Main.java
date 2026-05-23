@@ -21,33 +21,22 @@ public class Main {
         Product p2 = new Product(2, "Mouse", 80);
 
         Cart cart = new Cart();
-
         cart.addProduct(p1);
         cart.addProduct(p2);
-
         cart.showProducts();
-
         System.out.println("--------------------------");
-
         cart.setDiscountStrategy(new PercentageDiscountStrategy());
-
+        System.out.println("Descuento: 10%");
         System.out.println("Total: S/ " + cart.calculateTotal());
-
         PaymentProcessor paymentProcessor;
-
         paymentProcessor =
                 new PayPalAdapter(new ExternalPayPalService());
 
         paymentProcessor.pay(cart.calculateTotal());
-
         OrderService orderService = new OrderService();
-
         orderService.addObserver(new EmailNotificationObserver());
-
         orderService.addObserver(new InventoryObserver());
-
         orderService.addObserver(new AdminNotificationObserver());
-
         orderService.confirmOrder(cart.calculateTotal());
     }
 }
