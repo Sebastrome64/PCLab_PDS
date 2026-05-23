@@ -1,3 +1,7 @@
+import observer.AdminNotificationObserver;
+import observer.EmailNotificationObserver;
+import observer.InventoryObserver;
+import service.OrderService;
 import adapter.CreditCardPaymentProcessor;
 import adapter.ExternalPayPalService;
 import adapter.PayPalAdapter;
