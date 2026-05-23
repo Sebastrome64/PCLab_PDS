@@ -1,5 +1,6 @@
 import model.Cart;
 import model.Product;
+import strategy.PercentageDiscountStrategy;
 
 public class Main {
 
@@ -12,6 +13,8 @@ public class Main {
 
         cart.addProduct(p1);
         cart.addProduct(p2);
+
+        cart.applyDiscountStrategy(new PercentageDiscountStrategy());
 
         System.out.println("Total: S/ " + cart.calculateTotal());
     }
