@@ -21,5 +21,9 @@ public class Main {
         cart.applyDiscountStrategy(new PercentageDiscountStrategy());
 
         System.out.println("Total: S/ " + cart.calculateTotal());
+
+        PaymentProcessor paymentProcessor;
+        paymentProcessor = new CreditCardPaymentProcessor();
+        paymentProcessor.pay(cart.calculateTotal());
     }
 }
