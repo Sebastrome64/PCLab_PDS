@@ -1,3 +1,7 @@
+import strategy.DiscountStrategy;
+import strategy.DiscountStrategy;
+import strategy.NoDiscountStrategy;
+
 package model;
 
 import java.util.ArrayList;
@@ -6,12 +10,17 @@ import java.util.List;
 public class Cart {
 
     private List<Product> products;
+    private DiscountStrategy discountStrategy;
 
     public Cart() {
         products = new ArrayList<>();
+        discountStrategy = new NoDiscountStrategy();
     }
     public void addProduct(Product product) {
         products.add(product);
+    }
+    public void applyDiscountStrategy(DiscountStrategy discountStrategy) {
+        this.discountStrategy = discountStrategy;
     }
 
     public double calculateTotal() {
@@ -22,7 +31,7 @@ public class Cart {
             total += product.getPrice();
         }
 
-        return total;
+        return discountStrategy.applyDiscount(total);
     }
 
     public List<Product> getProducts() {
