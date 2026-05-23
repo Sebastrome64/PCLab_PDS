@@ -29,5 +29,11 @@ public class Main {
         PaymentProcessor paymentProcessor;
         paymentProcessor = new PayPalAdapter(new ExternalPayPalService());
         paymentProcessor.pay(cart.calculateTotal());
+
+        OrderService orderService = new OrderService();
+        orderService.addObserver(new EmailNotificationObserver());
+        orderService.addObserver(new InventoryObserver());
+        orderService.addObserver(new AdminNotificationObserver());
+        orderService.confirmOrder(cart.calculateTotal());
     }
 }
