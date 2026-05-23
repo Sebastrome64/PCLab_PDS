@@ -1,15 +1,17 @@
-import observer.EmailNotificationObserver;
-import observer.AdminNotificationObserver;h
-import observer.AdminNotificationObserver;
-import observer.EmailNotificationObserver;
 import observer.InventoryObserver;
+import observer.EmailNotificationObserver;
+import observer.AdminNotificationObserver;
+
 import service.OrderService;
+
 import adapter.CreditCardPaymentProcessor;
 import adapter.ExternalPayPalService;
 import adapter.PayPalAdapter;
 import adapter.PaymentProcessor;
+
 import model.Cart;
 import model.Product;
+
 import strategy.PercentageDiscountStrategy;
 
 public class Main {
@@ -27,18 +29,29 @@ public class Main {
         cart.addProduct(p1);
         cart.addProduct(p2);
 
-        cart.applyDiscountStrategy(new PercentageDiscountStrategy());
+        cart.showProducts();
+
+        System.out.println("--------------------------");
+
+        cart.setDiscountStrategy(new PercentageDiscountStrategy());
 
         System.out.println("Total: S/ " + cart.calculateTotal());
 
         PaymentProcessor paymentProcessor;
-        paymentProcessor = new PayPalAdapter(new ExternalPayPalService());
+
+        paymentProcessor =
+                new PayPalAdapter(new ExternalPayPalService());
+
         paymentProcessor.pay(cart.calculateTotal());
 
         OrderService orderService = new OrderService();
+
         orderService.addObserver(new EmailNotificationObserver());
+
         orderService.addObserver(new InventoryObserver());
+
         orderService.addObserver(new AdminNotificationObserver());
+
         orderService.confirmOrder(cart.calculateTotal());
     }
 }
