@@ -31,8 +31,8 @@ public class Main {
         PaymentProcessor paymentProcessor;
         paymentProcessor =
                 new PayPalAdapter(new ExternalPayPalService());
-
         paymentProcessor.pay(cart.calculateTotal());
+        System.out.println("--------------------------");
         OrderService orderService = new OrderService();
         orderService.addObserver(new EmailNotificationObserver());
         orderService.addObserver(new InventoryObserver());

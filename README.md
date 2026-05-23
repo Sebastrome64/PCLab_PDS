@@ -14,7 +14,6 @@ La tienda permite:
 
 El objetivo principal es aplicar patrones de diseño en un problema real orientado a objetos.
 
----
 
 # Patrones de Diseño Implementados
 
@@ -29,7 +28,6 @@ Se implementaron las siguientes estrategias:
 
 Esto permite cambiar dinámicamente el algoritmo de descuento durante la ejecución del sistema.
 
----
 
 ## Adapter Pattern
 
@@ -39,7 +37,6 @@ La clase PayPalAdapter adapta la interfaz del servicio externo ExternalPayPalSer
 
 Esto permite integrar sistemas incompatibles sin modificar el código existente.
 
----
 
 ## Observer Pattern
 
@@ -52,7 +49,6 @@ Los observers implementados son:
 
 Cuando la orden es confirmada, todos los observers son notificados automáticamente.
 
----
 
 # Ejemplo de salida en consola
 
