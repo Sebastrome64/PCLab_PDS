@@ -1,17 +1,13 @@
 import observer.InventoryObserver;
 import observer.EmailNotificationObserver;
 import observer.AdminNotificationObserver;
-
 import service.OrderService;
-
 import adapter.CreditCardPaymentProcessor;
 import adapter.ExternalPayPalService;
 import adapter.PayPalAdapter;
 import adapter.PaymentProcessor;
-
 import model.Cart;
 import model.Product;
-
 import strategy.PercentageDiscountStrategy;
 
 public class Main {
